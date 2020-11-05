@@ -22,7 +22,7 @@ public class Tokenizer {
         System.out.println(coreLabelList);
 
         for (CoreLabel coreLabel: coreLabelList) {
-            System.out.println(coreLabel.originalText());
+            System.out.println(coreLabel.beginPosition()+" "+ coreLabel.endPosition());
         }
 
     }

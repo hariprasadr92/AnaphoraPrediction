@@ -9,17 +9,16 @@
     <version>1.0-SNAPSHOT</version>
     <dependencies>
         <dependency>
-            <groupId>edu.stanford.nlp</groupId>
-            <artifactId>stanford-corenlp
-            </artifactId>
-            <version>3.9.2</version>
-        </dependency>
-        <dependency>
-            <groupId>edu.stanford.nlp</groupId>
-            <artifactId>stanford-corenlp</artifactId>
-            <version>3.9.2</version>
-            <classifier>models</classifier>
-        </dependency>
+		    <groupId>edu.stanford.nlp</groupId>
+		    <artifactId>stanford-corenlp</artifactId>
+		    <version>4.0.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>edu.stanford.nlp</groupId>
+		    <artifactId>stanford-corenlp</artifactId>
+		    <version>4.0.0</version>
+		    <classifier>models</classifier>
+		</dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -30,6 +29,21 @@
 		    <groupId>com.opencsv</groupId>
 		    <artifactId>opencsv</artifactId>
 		    <version>4.1</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.extjwnl</groupId>
+			<artifactId>extjwnl</artifactId>
+			<version>2.0.3</version>
+		</dependency>
+			<dependency>
+			<groupId>net.sf.extjwnl</groupId>
+			<artifactId>extjwnl-data-wn31</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+		   <groupId>io.github.semlink</groupId>
+		   <artifactId>verbnet</artifactId>
+		   <version>0.0.1</version>
 		</dependency>
     </dependencies>
 
