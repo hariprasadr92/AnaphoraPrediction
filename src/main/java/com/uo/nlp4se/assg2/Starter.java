@@ -31,11 +31,12 @@ public class Starter {
 		for (LabelTextPair datum: data ) {
 			counter++;
 			System.out.println(counter);
-			
+			//if(counter==50) { System.out.println(counter+" "+ data); finalList.addAll(TokenizePOSAndAnalyze (datum)); }
 			finalList.addAll(TokenizePOSAndAnalyze (datum));
+	
 			//finalList.addAll(test (datum));
 
-			if (counter==20) {break;}
+			//if (counter==2) {break;}
 		}
 		
 		//generating the csv		
@@ -186,7 +187,7 @@ public class Starter {
 						result.setF13IsFollByAdj(false);
 					}
 					
-					//f15 
+					//f14 
 					result.setF14IsFollByNPAdj(FeatureExtractor.calculateF14(labelTextPair.getText(), token));
 
 					//f17
@@ -224,24 +225,24 @@ public class Starter {
 						}
 						
 						// f15- checks if infinitive verb and occurs after "if" (token)
-						if (tkn.originalText()=="to" 
+						if (tkn.originalText().equals("to") 
 								&& (tkn.index()> token.index())
 								&& isF15InfinitiveWordFound == false) {	
 							
-							if(coreLabelList.get(tkn.index()+2).get(CoreAnnotations.PartOfSpeechAnnotation.class).equals("VB")) {
-								f15Value = tkn.index()-token.index()-1;
+							if(coreLabelList.get(tkn.index()).get(CoreAnnotations.PartOfSpeechAnnotation.class).equals("VB")) {
+								f15Value = tkn.index()-token.index()+1; // the vb token is inclusive here.
 								isF15InfinitiveWordFound=true;
 							}
 							
 						}
 						
-						// f16 checks if infinitive verb and occurs after "if" (token)
-						if (tkn.get(CoreAnnotations.PartOfSpeechAnnotation.class).equals("VB") 
+						// f16 checks and counts the no. of token between it and 
+						if (tkn.get(CoreAnnotations.PartOfSpeechAnnotation.class).equals("IN") 
 								&& (tkn.index()> token.index())
 								&& isF16Prepositionfound==false){		
 							
 							//sets f16
-							f16Value=tkn.index()-token.index(); // the vb token is inlusive here.
+							f16Value=tkn.index()-token.index()+1; // the preposition token is inclusive here.
 							isF16Prepositionfound=true;
 						}				
 						
@@ -253,6 +254,7 @@ public class Starter {
 							isImmediatelyFollowingVerbFound=true;
 							f19Value = WordnetUtil.checkIfWeatherVerb(tkn.originalText());
 							f20Value = WordnetUtil.checkIfCognitionVerb(tkn.originalText());
+							System.out.println(f20Value);
 						}
 					}
 					

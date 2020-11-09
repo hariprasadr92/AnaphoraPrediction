@@ -24,41 +24,13 @@ public class DependencyParserDemo  {
   /** A logger for this class */
   private static final Redwood.RedwoodChannels log = Redwood.channels(DependencyParserDemo.class);
 
-  private DependencyParserDemo() {} // static main method only
-
-  public static void main(String[] args) {
-	  
-    String modelPath = DependencyParser.DEFAULT_MODEL;
-    String taggerPath = "edu/stanford/nlp/models/pos-tagger/english-left3words-distsim.tagger";
-
-    String text = "I can almost always tell when movies use fake dinosaurs.";
-
-    MaxentTagger tagger = new MaxentTagger(taggerPath);
-    DependencyParser parser = DependencyParser.loadFromModelFile(modelPath);
-    DocumentPreprocessor tokenizer = new DocumentPreprocessor(new StringReader(text));
-    for (List<HasWord> sentence : tokenizer) {
-
-      List<TaggedWord> tagged = tagger.tagSentence(sentence);
-      GrammaticalStructure gs = parser.predict(tagged);
-      
-      // Print typed dependencies
-      log.info(gs);
-      List<TypedDependency> dependencies = gs.typedDependenciesEnhancedPlusPlus();
-      
-      for (TypedDependency dep: dependencies) {
-    	  
-    	  System.out.println(dep.toString()+" "+ dep.gov().index()+" "+dep.dep().word().toString());
-      }
-      
-    }
-  }
-  
+  private DependencyParserDemo() {}
+ 
   public static List<TypedDependency> getDependencies (String text) {
 	  
 	  List<TypedDependency> dependencies = new ArrayList<TypedDependency>();
 	  
-//	  String modelPath = DependencyParser.DEFAULT_MODEL;
-//	  String taggerPath = "edu/stanford/nlp/models/pos-tagger/english-left3words-distsim.tagger";
+
 
 	    MaxentTagger tagger = Pipeline.getTagger();
 	    DependencyParser parser = Pipeline.getDepParser();

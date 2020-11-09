@@ -3,10 +3,6 @@ package com.uo.nlp4se.assg2;
 import java.util.List;
 
 import net.sf.extjwnl.JWNLException;
-import net.sf.extjwnl.dictionary.Dictionary;
-
-
-import net.sf.extjwnl.JWNLException;
 import net.sf.extjwnl.data.IndexWord;
 import net.sf.extjwnl.data.POS;
 import net.sf.extjwnl.data.Synset;
@@ -15,47 +11,19 @@ import net.sf.extjwnl.dictionary.Dictionary;
 public class WordnetUtil {
 	
 	public static final POS VERB = POS.VERB;
-
-	  
-    public static void main(String[] args) {
-    	
-    	
-    	  
-    	try {
-    		
-			Dictionary d = Dictionary.getDefaultResourceInstance();
-			
-
-			IndexWord indexWord1 = d.lookupIndexWord(VERB, "shutting");
-			List<Synset> senses = indexWord1.getSenses();
-			if (!senses.isEmpty()) {
-				for (Synset s:  senses) {		
-					System.out.println(s.getLexFileName());
-//					if(s.getLexFileName().equals("verb.cognition")) {
-//						break;
-//					}	
-				}
-			}			
-		} catch (JWNLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-    
-    }
-    
     public static boolean checkIfWeatherVerb(String verb) {
     	
     	boolean isWeatherVerb = false;
 
     	try {    		
 			Dictionary d = Dictionary.getDefaultResourceInstance();	
-
 			IndexWord indexWord = d.lookupIndexWord(VERB, verb);
+			System.out.println(verb);
 			if(indexWord!=null) {
 				List<Synset> senses = indexWord.getSenses();
 				if (!senses.isEmpty()) {
 					for (Synset s:  senses) {
+						System.out.println(s.getLexFileName());
 						if(s.getLexFileName().equals("verb.weather")) {
 							isWeatherVerb=true;
 							break;
@@ -80,12 +48,13 @@ public class WordnetUtil {
 
     	try {    		
 			Dictionary d = Dictionary.getDefaultResourceInstance();	
-
+			System.out.println(verb);
 			IndexWord indexWord = d.lookupIndexWord(VERB, verb);
 			if(indexWord!=null) {
 				List<Synset> senses = indexWord.getSenses();
 				if (!senses.isEmpty()) {
 					for (Synset s:  senses) {
+						System.out.println(s.getLexFileName());
 						if(s.getLexFileName().equals("verb.cognition")) {
 							isCognitionVerb=true;
 							break;

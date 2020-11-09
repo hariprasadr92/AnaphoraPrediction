@@ -7,7 +7,6 @@ import java.util.List;
 
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
-import com.uo.nlp4se.assg2.model.Friend;
 import com.uo.nlp4se.assg2.model.LabelTextPair;
 
 public class SmartCsvReader {

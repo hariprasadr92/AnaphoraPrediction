@@ -13,12 +13,11 @@ import util.AppConstants;
 
 public class FeatureExtractor {
 	
-	public static void main(String[] args) {
-		
-		//calculateF6("He  fears  that  if  he  remains  in  the  room  he  may  have  to  open  it  again,  and  that  Mr.s.  Inglethorp  might  catch  sight  of  the  letter  before  he  could  snatch  it  up.");
+	
+	
+	private FeatureExtractor() {
 	}
-	
-	
+
 	public static PAAResult calcPrecdingAndSuccNPCount (CoreLabel token,String text) {
 		
 		Integer tokenBeginPosition = token.beginPosition();

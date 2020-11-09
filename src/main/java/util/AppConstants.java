@@ -11,9 +11,9 @@ public class AppConstants {
 	 
 	 // Tregex pattern	 
 	 public static final String TREGEX_ATOMIC_NP = "NP !< NP";
-	 public static final String  NP_COV_ADJ_NN = "NP < (JJ $. /NN.?/ )";
+	 public static final String  NP_COV_ADJ_NN = "NP < (/JJ.?/ $. /NN.?/) ";
 	 public static final String  PP = "PP";
-	 public static final String  NP_COV_JJ = "NP < JJ";
+	 public static final String  NP_COV_JJ = "NP << /JJ.?/";
 
 
 
