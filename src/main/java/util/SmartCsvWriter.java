@@ -25,7 +25,7 @@ public class SmartCsvWriter {
 		Date date= new Date();
 		String filename = filename1+"_"+date.toString()+".csv";
 		try {
-			Writer writer= new FileWriter("targetf20.csv");
+			Writer writer= new FileWriter("output.csv");
 			
 			StatefulBeanToCsv<PAAResult> beanToCSV = 
 					new StatefulBeanToCsvBuilder<PAAResult>(writer).build();
